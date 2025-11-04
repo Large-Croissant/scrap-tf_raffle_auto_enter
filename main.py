@@ -12,7 +12,8 @@ def rand_wait():
 def main():
     with playwright.sync_api.sync_playwright() as p:
         # Launch the browser (headless=False to see the browser window)
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=False).new_context()
+        
         page = browser.new_page()
 
         # Navigate to a webpage
